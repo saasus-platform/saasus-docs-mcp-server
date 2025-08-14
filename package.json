@@ -1,0 +1,30 @@
+{
+  "name": "saasus-docs-mcp-server",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Anti-Pattern Inc.",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@mastra/core": "^0.13.2",
+    "@mastra/mcp": "^0.10.11",
+    "jsdom": "^26.1.0",
+    "lunr": "^2.3.9",
+    "lunr-languages": "^1.14.0",
+    "turndown": "^7.2.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^24.2.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
