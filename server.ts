@@ -11,6 +11,4 @@ const server = new MCPServer({
   },
 });
 
-server.startStdio().then(() => {
-  console.log("MCP Server is running...");
-});
+server.startStdio();

@@ -1,20 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES2024",
+    "target": "ES2023",
     "module": "NodeNext",
     "lib": [
-      "ES2024"
+      "ES2023"
     ],
-    "outDir": "./dist",
+    "outDir": "./",
     "rootDir": "./",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
     "moduleResolution": "NodeNext",
     "incremental": true,
     "allowJs": true,
@@ -24,9 +24,7 @@
     ]
   },
   "include": [
-    "*.ts",
-    "types/**/*.d.ts",
-    "tools/**/*.ts"
+    "server.ts"
   ],
   "exclude": [
     "node_modules",
