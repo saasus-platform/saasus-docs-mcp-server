@@ -1,16 +1,3 @@
-import { MCPServer } from "@mastra/mcp";
-import { saasusDocsSearchTool } from "./tools/saasus-search-tool";
-import { saasusDocsContentTool } from "./tools/saasus-content-tool";
-import { saasusDocsSitemapTool } from "./tools/saasus-sitemap-tool";
+import { mcpServer } from "./src/mastra/mcp/saasus-platform-docs-search-mcp";
 
-const server = new MCPServer({
-  name: "SaaSus Platform Docs Search",
-  version: "1.1.1",
-  tools: {
-    saasusDocsSearchTool,
-    saasusDocsContentTool,
-    saasusDocsSitemapTool,
-  },
-});
-
-server.startStdio();
+mcpServer.startStdio();

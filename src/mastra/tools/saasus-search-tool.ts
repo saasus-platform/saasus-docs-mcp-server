@@ -77,7 +77,50 @@ const searchSaaSusDocs = async (
     const index = lunr.Index.load(indexItem.index);
     const store = indexItem.documents;
 
-    return index.search(query).map((searchResult) => {
+    // Try multiple search strategies for better recall
+    const searchStrategies = [];
+
+    // Always try exact query first
+    searchStrategies.push(query);
+
+    // For single word queries, add wildcard variations
+    const words = query.trim().split(/\s+/);
+    if (words.length === 1) {
+      searchStrategies.push(`${query}*`); // Prefix wildcard
+      searchStrategies.push(`*${query}*`); // Contains wildcard
+
+      // Only add character-split search for very short single words (1-3 characters)
+      if (query.length <= 3) {
+        searchStrategies.push(query.split("").join("* ") + "*");
+      }
+    } else {
+      // For multi-word queries, try different combinations
+      searchStrategies.push(words.map((word) => `${word}*`).join(" ")); // Each word with prefix wildcard
+      searchStrategies.push(words.map((word) => `*${word}*`).join(" ")); // Each word with contains wildcard
+    }
+
+    const allResults = new Map<string, lunr.Index.Result>();
+
+    searchStrategies.forEach((searchQuery, strategyIndex) => {
+      try {
+        const strategyResults = index.search(searchQuery);
+        strategyResults.forEach((result) => {
+          const key = String(result.ref);
+          if (
+            !allResults.has(key) ||
+            allResults.get(key)!.score < result.score
+          ) {
+            // Adjust score based on strategy (exact matches get higher scores)
+            const adjustedScore = result.score * (1 - strategyIndex * 0.1);
+            allResults.set(key, { ...result, score: adjustedScore });
+          }
+        });
+      } catch (error) {
+        // Ignore search errors for complex wildcard queries
+      }
+    });
+
+    return Array.from(allResults.values()).map((searchResult) => {
       const refString = String(searchResult.ref);
       const document = findDocument(store, refString);
 

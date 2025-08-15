@@ -46,18 +46,18 @@ const fetchSaaSusSitemap = async (): Promise<{
 
   // Build compact hierarchical structure using arrays for leafs only
   const structure: Record<string, any> = {};
-  
+
   paths.forEach((path) => {
     if (!path) return;
-    
-    const segments = path.split('/').filter(segment => segment);
+
+    const segments = path.split("/").filter((segment) => segment);
     let current = structure;
-    
+
     segments.forEach((segment, index) => {
       if (index === segments.length - 1) {
         // Last segment - set as 1 (endpoint marker)
-        if (typeof current[segment] === 'object') {
-          current[segment]['/'] = 1; // Mark as endpoint in existing object
+        if (typeof current[segment] === "object") {
+          current[segment]["/"] = 1; // Mark as endpoint in existing object
         } else {
           current[segment] = 1; // Simple endpoint
         }
@@ -67,7 +67,7 @@ const fetchSaaSusSitemap = async (): Promise<{
           current[segment] = {};
         } else if (current[segment] === 1) {
           // Convert endpoint to object with endpoint marker
-          current[segment] = { '/': 1 };
+          current[segment] = { "/": 1 };
         }
         current = current[segment];
       }
