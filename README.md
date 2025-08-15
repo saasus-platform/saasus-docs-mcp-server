@@ -35,6 +35,7 @@ npm run build
 
 - **saasus-docs-search-urls**: SaaSus Platformドキュメント内を検索し、関連記事のURLを取得
 - **saasus-docs-get-content**: 指定されたURLのSaaSus Platformドキュメント記事の完全なコンテンツを取得
+- **saasus-docs-sitemap**: SaaSus PlatformドキュメントのサイトマップからすべてのページのURL一覧を取得
 
 ## 設定前の準備
 
