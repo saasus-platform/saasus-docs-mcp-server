@@ -116,7 +116,8 @@ const searchSaaSusDocs = async (
           }
         });
       } catch (error) {
-        // Ignore search errors for complex wildcard queries
+        // Log search errors for debugging but continue with other strategies
+        console.warn(`Search strategy "${searchQuery}" failed:`, error);
       }
     });
 
