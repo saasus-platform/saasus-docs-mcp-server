@@ -21,9 +21,9 @@ interface SearchResult {
 
 interface Document {
   i: number;
-  t?: string;
-  u?: string;
-  s?: string;
+  t?: string; // content/description
+  u?: string; // url
+  s?: string; // title
 }
 
 interface IndexItem {
@@ -144,9 +144,9 @@ function formatResult(
 ): SearchResult {
   return {
     score: searchResult.score,
-    title: document.t || "",
+    title: document.s || document.t || "",
     url: `https://docs.saasus.io${document.u || ""}`,
-    excerpt: String(document.s || document.t || "")
+    excerpt: String(document.t || document.s || "")
       .replace(/\s+/g, " ")
       .slice(0, 160),
   };
