@@ -6,7 +6,7 @@ import { JSDOM } from "jsdom";
 export const saasusDocsContentTool = createTool({
   id: "saasus-docs-get-content",
   description:
-    "Fetch the full content of a SaaSus Platform documentation article from its URL. Use this tool after getting URLs from saasus-docs-search-urls tool to retrieve the complete article content.",
+    "Fetch the full content of a SaaSus Platform documentation article from its URL. Use this tool after getting URLs from saasus-docs-search-urls tool or saasus-docs-sitemap tool to retrieve the complete article content.",
   inputSchema: z.object({
     url: z
       .string()

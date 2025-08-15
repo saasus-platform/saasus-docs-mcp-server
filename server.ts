@@ -5,7 +5,7 @@ import { saasusDocsSitemapTool } from "./tools/saasus-sitemap-tool";
 
 const server = new MCPServer({
   name: "SaaSus Platform Docs Search",
-  version: "1.1.0",
+  version: "1.1.1",
   tools: {
     saasusDocsSearchTool,
     saasusDocsContentTool,

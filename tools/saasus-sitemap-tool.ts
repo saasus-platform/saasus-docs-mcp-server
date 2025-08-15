@@ -5,7 +5,7 @@ import { JSDOM } from "jsdom";
 export const saasusDocsSitemapTool = createTool({
   id: "saasus-docs-sitemap",
   description:
-    "Fetch the sitemap XML from SaaSus Platform documentation to get a list of all available URLs. Useful for discovering all documentation pages and their structure, especially when search doesn't return relevant results or you need to browse the complete site hierarchy.",
+    "Fetch the sitemap XML from SaaSus Platform documentation to get a list of all available URLs. Useful for discovering all documentation pages and their structure, especially when search doesn't return relevant results or you need to browse the complete site hierarchy. Use with saasus-docs-get-content tool to fetch specific article content.",
   inputSchema: z.object({}),
   outputSchema: z.object({
     baseUrl: z.string(),
