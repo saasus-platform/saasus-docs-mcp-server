@@ -2,6 +2,10 @@
 
 SaaSus Docs MCP Serverは、Model Context Protocol (MCP) サーバーとして動作し、SaaSus Platformのドキュメント検索機能をClaude DesktopやCursorなどのMCP互換クライアントから利用できるようにします。
 
+<a href="https://glama.ai/mcp/servers/@saasus-platform/saasus-docs-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@saasus-platform/saasus-docs-mcp-server/badge" alt="SaaSus Docs Server MCP server" />
+</a>
+
 ## 前提条件
 
 - Node.js（v22推奨）
