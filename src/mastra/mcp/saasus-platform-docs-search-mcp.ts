@@ -1,12 +1,12 @@
 import { MCPServer } from "@mastra/mcp";
-import { saasusDocsSearchTool } from "../tools/saasus-search-tool";
-import { saasusDocsContentTool } from "../tools/saasus-content-tool";
-import { saasusDocsSitemapTool } from "../tools/saasus-sitemap-tool";
-import { version } from "../../../package.json";
+import { saasusDocsSearchTool } from "../tools/saasus-search-tool.js";
+import { saasusDocsContentTool } from "../tools/saasus-content-tool.js";
+import { saasusDocsSitemapTool } from "../tools/saasus-sitemap-tool.js";
+import packageJson from "../../../package.json" with { type: "json" };
 
 export const mcpServer = new MCPServer({
   name: "SaaSus Platform Docs Search",
-  version,
+  version: packageJson.version,
   tools: {
     saasusDocsSearchTool,
     saasusDocsContentTool,
